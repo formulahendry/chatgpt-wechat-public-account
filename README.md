@@ -8,7 +8,7 @@
 
 1. OpenAI 账号，并[创建 API Key](https://platform.openai.com/account/api-keys)
 
-1. 微信公众号，并[微信公众平台开发](https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html)
+1. 微信公众号
 
 1. Python 3.7+
 
@@ -26,4 +26,10 @@
 
     `ngrok http 8888`
 
-1. 根据[微信公众平台开发](https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html)的步骤，把 ngrok 的 URL 填入服务器地址（URL）。
+1. 根据[微信公众平台开发](https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html)的第一步，填写服务器配置：
+    
+    * URL：ngrok 的 URL
+    * Token：前面在 .env 文件中设置的 WECHAT_TOKEN
+    * EncodingAESKey：随机生成就行
+
+1. 大功告成！到公众号后台进行互动吧！

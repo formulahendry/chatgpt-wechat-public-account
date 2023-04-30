@@ -42,4 +42,7 @@ def hello_world(message):
 
     return reply
 
+robot.config['HOST'] = '0.0.0.0'
+port = os.getenv("PORT")
+robot.config['PORT'] = 8888 if port is None else port
 robot.run()
