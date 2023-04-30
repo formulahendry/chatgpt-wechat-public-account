@@ -10,7 +10,7 @@ robot = werobot.WeRoBot(token=os.getenv("WECHAT_TOKEN"))
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 max_tokens = os.getenv("MAX_TOKENS")
-max_tokens = 100 if max_tokens is None else max_tokens
+max_tokens = 100 if max_tokens is None else int(max_tokens)
 
 def get_gpt3_reply(text):
     print("Calling text-davinci-003 API...")
