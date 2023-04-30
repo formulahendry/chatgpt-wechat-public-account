@@ -42,7 +42,26 @@ def hello_world(message):
 
     return reply
 
-robot.config['HOST'] = '0.0.0.0'
+# robot.config['HOST'] = '0.0.0.0'
+# port = os.getenv("PORT")
+# robot.config['PORT'] = 8888 if port is None else port
+# robot.run()
+
+### Integrate with Flask
+from flask import Flask
+from werobot.contrib.flask import make_view
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return 'Web App with Python Flask!'
+
+app.add_url_rule(rule='/robot/', # WeRoBot 的绑定地址
+                endpoint='werobot', # Flask 的 endpoint
+                view_func=make_view(robot),
+                methods=['GET', 'POST'])
+
 port = os.getenv("PORT")
-robot.config['PORT'] = 8888 if port is None else port
-robot.run()
+port = 8888 if port is None else port
+app.run(host='0.0.0.0', port=port)
